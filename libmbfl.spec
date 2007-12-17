@@ -14,7 +14,6 @@ Patch0:		libmbfl-nls_tr.diff
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 This is Libmbfl, a streamable multibyte character code filter and converter
