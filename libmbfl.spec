@@ -1,16 +1,21 @@
+%define	fver 1.0.1
+
 %define	major 1
 %define libname %mklibname mbfl %{major}
 %define develname %mklibname mbfl -d
 
 Summary:	Streamable kanji code filter and converter
 Name:		libmbfl
-Version:	1.0.1
-Release:	%mkrel 4
+Version:	1.0.2
+Release:	%mkrel 1
 License:	LGPL
 Group:		System/Libraries
 URL:		http://sourceforge.jp/projects/php-i18n/
-Source0:	http://osdn.dl.sourceforge.jp/php-i18n/18570/%{name}-%{version}.tar.bz2
-Patch0:		libmbfl-php525.diff
+Source0:	http://osdn.dl.sourceforge.jp/php-i18n/18570/%{name}-%{fver}.tar.bz2
+# ftp://ftp.unicode.org/Public/MAPPINGS/
+Source1:	unicode_mappings.tar.gz
+Patch0:		libmbfl-php530.diff
+Patch1:		libmbfl-mbfl_encoding_2022jpms_fix.diff
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -46,8 +51,9 @@ which requires the mbfl library.
 
 %prep
 
-%setup -q -n %{name}-%{version}
+%setup -q -n %{name}-%{fver} -a1
 %patch0 -p1
+%patch1 -p0
 
 # fix strange perms
 find . -type d -perm 0700 -exec chmod 755 {} \;
@@ -87,7 +93,7 @@ rm -rf %{buildroot}
 %files -n %{libname}
 %defattr(-,root,root)
 %doc AUTHORS DISCLAIMER LICENSE README
-%attr(0755,root,root) %{_libdir}/*.so.*
+%attr(0755,root,root) %{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
 %defattr(-,root,root)
