@@ -7,7 +7,7 @@
 Summary:	Streamable kanji code filter and converter
 Name:		libmbfl
 Version:	1.0.2
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	LGPL
 Group:		System/Libraries
 URL:		http://sourceforge.jp/projects/php-i18n/
@@ -69,7 +69,7 @@ libtoolize --copy --force; aclocal; autoheader; automake --add-missing --force-m
 
 %configure2_5x
 
-%make
+make
 
 %check
 make check
