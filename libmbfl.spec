@@ -7,14 +7,14 @@
 Summary:	Streamable kanji code filter and converter
 Name:		libmbfl
 Version:	1.1.0
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	LGPL
 Group:		System/Libraries
 URL:		http://sourceforge.jp/projects/php-i18n/
 Source0:	http://osdn.dl.sourceforge.jp/php-i18n/18570/%{name}-%{fver}.tar.bz2
 # ftp://ftp.unicode.org/Public/MAPPINGS/
 Source1:	unicode_mappings.tar.gz
-Patch0:		libmbfl-php536.diff
+Patch0:		libmbfl-php537RC1.diff
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
