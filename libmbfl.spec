@@ -7,17 +7,15 @@
 Summary:	Streamable kanji code filter and converter
 Name:		libmbfl
 Version:	1.1.0
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	LGPL
 Group:		System/Libraries
 URL:		http://sourceforge.jp/projects/php-i18n/
 Source0:	http://osdn.dl.sourceforge.jp/php-i18n/18570/%{name}-%{fver}.tar.bz2
 # ftp://ftp.unicode.org/Public/MAPPINGS/
 Source1:	unicode_mappings.tar.gz
-Patch0:		libmbfl-php537RC1.diff
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	libtool
+Patch0:		libmbfl-php539RC1.diff
+BuildRequires:	autoconf automake libtool
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -37,7 +35,7 @@ This package provides the shared mbfl library.
 %package -n	%{develname}
 Summary:	Static library and header files for development with mbfl
 Group:		Development/C
-Requires:	%{libname} = %{version}
+Requires:	%{libname} >= %{version}
 Provides:	mbfl-devel = %{version}-%{release}
 Obsoletes:	mbfl-devel
 
@@ -67,7 +65,7 @@ libtoolize --copy --force; aclocal; autoheader; automake --add-missing --force-m
 
 %configure2_5x
 
-make
+%make
 
 %check
 make check
@@ -77,13 +75,8 @@ rm -rf %{buildroot}
 
 %makeinstall_std
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
+# cleanup
+rm -f %{buildroot}%{_libdir}/*.*a
 
 %clean
 rm -rf %{buildroot}
@@ -98,5 +91,3 @@ rm -rf %{buildroot}
 %attr(0755,root,root) %dir %{_includedir}/mbfl
 %attr(0644,root,root) %{_includedir}/mbfl/*.h
 %attr(0644,root,root) %{_libdir}/*.so
-%attr(0644,root,root) %{_libdir}/*.a
-%attr(0644,root,root) %{_libdir}/*.la
