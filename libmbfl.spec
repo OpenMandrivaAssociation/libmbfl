@@ -7,7 +7,7 @@
 Summary:	Streamable kanji code filter and converter
 Name:		libmbfl
 Version:	1.1.0
-Release:	%mkrel 6
+Release:	7
 License:	LGPL
 Group:		System/Libraries
 URL:		http://sourceforge.jp/projects/php-i18n/
@@ -16,7 +16,6 @@ Source0:	http://osdn.dl.sourceforge.jp/php-i18n/18570/%{name}-%{fver}.tar.bz2
 Source1:	unicode_mappings.tar.gz
 Patch0:		libmbfl-php539RC1.diff
 BuildRequires:	autoconf automake libtool
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This is Libmbfl, a streamable multibyte character code filter and converter
@@ -35,7 +34,7 @@ This package provides the shared mbfl library.
 %package -n	%{develname}
 Summary:	Static library and header files for development with mbfl
 Group:		Development/C
-Requires:	%{libname} >= %{version}
+Requires:	%{libname} >= %{version}-%{release}
 Provides:	mbfl-devel = %{version}-%{release}
 Obsoletes:	mbfl-devel
 
@@ -78,16 +77,11 @@ rm -rf %{buildroot}
 # cleanup
 rm -f %{buildroot}%{_libdir}/*.*a
 
-%clean
-rm -rf %{buildroot}
-
 %files -n %{libname}
-%defattr(-,root,root)
 %doc AUTHORS DISCLAIMER LICENSE README
 %attr(0755,root,root) %{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %attr(0755,root,root) %dir %{_includedir}/mbfl
 %attr(0644,root,root) %{_includedir}/mbfl/*.h
 %attr(0644,root,root) %{_libdir}/*.so
