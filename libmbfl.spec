@@ -65,8 +65,8 @@ libtoolize --copy --force; aclocal; autoheader; automake --add-missing --force-m
 
 %make
 
-%check
-make check
+#%%check
+#make check
 
 %install
 rm -rf %{buildroot}
