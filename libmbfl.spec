@@ -1,4 +1,4 @@
-%define	fver 1.0.1
+%define	fver 1.2.0
 
 %define	major 1
 %define libname %mklibname mbfl %{major}
@@ -6,16 +6,16 @@
 
 Summary:	Streamable kanji code filter and converter
 Name:		libmbfl
-Version:	1.1.0
-Release:	7
+Version:	1.2.0
+Release:	1
 License:	LGPL
 Group:		System/Libraries
 URL:		http://sourceforge.jp/projects/php-i18n/
-Source0:	http://osdn.dl.sourceforge.jp/php-i18n/18570/%{name}-%{fver}.tar.bz2
+Source0:	http://osdn.dl.sourceforge.jp/php-i18n/18570/%{name}-%{fver}.tar.gz
 # ftp://ftp.unicode.org/Public/MAPPINGS/
 Source1:	unicode_mappings.tar.gz
-Patch0:		libmbfl-php539RC1.diff
 BuildRequires:	autoconf automake libtool
+BuildRequires:	dejagnu
 
 %description
 This is Libmbfl, a streamable multibyte character code filter and converter
@@ -48,7 +48,6 @@ which requires the mbfl library.
 %prep
 
 %setup -q -n %{name}-%{fver} -a1
-%patch0 -p1
 
 # fix strange perms
 find . -type d -perm 0700 -exec chmod 755 {} \;
