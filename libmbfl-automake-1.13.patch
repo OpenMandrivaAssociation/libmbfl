@@ -1,0 +1,14 @@
+--- libmbfl-1.2.0/configure.in.bero	2013-01-16 00:19:04.470862571 +0100
++++ libmbfl-1.2.0/configure.in	2013-01-16 00:19:18.163697991 +0100
+@@ -1,8 +1,8 @@
+ # Process this file with autoconf to produce a configure script.
+-AC_INIT(mbfl/mbfilter.c)
+-AM_INIT_AUTOMAKE(libmbfl, 1.1.0)
++AC_INIT(libmbfl, 1.1.0)
++AM_INIT_AUTOMAKE
+ AC_CONFIG_SRCDIR(mbfl/mbfilter.c)
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS([config.h])
+ 
+ # SHLIB isn't a version number but the API reference
+ # Read http://www.gnu.org/software/libtool/manual/libtool.html#Updating-version-info

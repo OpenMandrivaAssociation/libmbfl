@@ -14,6 +14,7 @@ URL:		http://sourceforge.jp/projects/php-i18n/
 Source0:	http://osdn.dl.sourceforge.jp/php-i18n/18570/%{name}-%{fver}.tar.gz
 # ftp://ftp.unicode.org/Public/MAPPINGS/
 Source1:	unicode_mappings.tar.gz
+Patch0:		libmbfl-automake-1.13.patch
 BuildRequires:	autoconf automake libtool
 BuildRequires:	dejagnu
 
@@ -48,6 +49,7 @@ which requires the mbfl library.
 %prep
 
 %setup -q -n %{name}-%{fver} -a1
+%apply_patches
 
 # fix strange perms
 find . -type d -perm 0700 -exec chmod 755 {} \;
