@@ -4,8 +4,8 @@
 
 Summary:	Streamable kanji code filter and converter
 Name:		libmbfl
-Version:	1.2.0
-Release:	2
+Version:	1.3.2
+Release:	0.1
 License:	LGPLv2
 Group:		System/Libraries
 Url:		http://sourceforge.jp/projects/php-i18n/
@@ -41,7 +41,7 @@ This package is only needed if you plan to develop or compile applications
 which requires the mbfl library.
 
 %prep
-%setup -q -a1
+%setup -qn %{name}-%{name}-%{version} -a1
 %apply_patches
 
 # fix strange perms
@@ -52,6 +52,9 @@ find . -type f -perm 0444 -exec chmod 644 {} \;
 chmod 644 AUTHORS DISCLAIMER LICENSE README
 rm -f configure
 touch NEWS ChangeLog COPYING
+
+sed -i 's/mbfilter_iso2022_jp_2004.c/mbfilter_iso2022jp_2004.c/' filters/Makefile.am
+
 autoreconf -fi
 
 %build
