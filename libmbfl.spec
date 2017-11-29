@@ -8,8 +8,8 @@ Version:	1.3.2
 Release:	1
 License:	LGPLv2
 Group:		System/Libraries
-Url:		http://sourceforge.jp/projects/php-i18n/
-Source0:	http://osdn.dl.sourceforge.jp/php-i18n/18570/%{name}-%{version}.tar.gz
+Url:		https://github.com/moriyoshi/libmbfl
+Source0:	https://github.com/moriyoshi/libmbfl/archive/libmbfl-%{version}.tar.gz
 # ftp://ftp.unicode.org/Public/MAPPINGS/
 Source1:	unicode_mappings.tar.gz
 Patch0:		libmbfl-automake-1.13.patch
