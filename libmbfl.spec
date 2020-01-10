@@ -42,7 +42,7 @@ which requires the mbfl library.
 
 %prep
 %setup -qn %{name}-%{name}-%{version} -a1
-%apply_patches
+%autopatch -p1
 
 # fix strange perms
 find . -type d -perm 0700 -exec chmod 755 {} \;
