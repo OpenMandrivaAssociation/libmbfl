@@ -5,7 +5,7 @@
 Summary:	Streamable kanji code filter and converter
 Name:		libmbfl
 Version:	1.3.2
-Release:	2
+Release:	3
 License:	LGPLv2
 Group:		System/Libraries
 Url:		https://github.com/moriyoshi/libmbfl
