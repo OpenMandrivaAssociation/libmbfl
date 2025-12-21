@@ -13,6 +13,11 @@ Source0:	https://github.com/moriyoshi/libmbfl/archive/libmbfl-%{version}.tar.gz
 # ftp://ftp.unicode.org/Public/MAPPINGS/
 Source1:	unicode_mappings.tar.gz
 Patch0:		libmbfl-automake-1.13.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	dejagnu
 BuildRequires:	libtool
 
